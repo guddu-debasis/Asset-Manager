@@ -1,0 +1,108 @@
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition);
+  animation: fadeIn 0.35s ease both;
+  display: flex;
+  flex-direction: column;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card:hover {
+  border-color: var(--border-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.imgWrap {
+  height: 140px;
+  background: var(--bg-3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.card:hover .img { transform: scale(1.04); }
+.imgPlaceholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--text-3);
+}
+
+.body { padding: 0.9rem; flex: 1; }
+.name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brand { font-size: 0.78rem; color: var(--text-3); margin-bottom: 0.25rem; }
+.price { font-size: 0.95rem; font-weight: 600; color: var(--accent); margin-bottom: 0.2rem; }
+.year  { font-size: 0.75rem; color: var(--text-3); }
+.condition {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  color: var(--text-2);
+}
+
+.menu { position: absolute; top: 0.5rem; right: 0.5rem; }
+.menuBtn {
+  background: rgba(15,14,13,0.75);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  border-radius: 6px;
+  padding: 0.15rem 0.45rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+  transition: all var(--transition);
+}
+.menuBtn:hover { background: var(--surface-2); color: var(--text); }
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-width: 130px;
+  z-index: 20;
+  box-shadow: var(--shadow);
+  animation: scaleIn 0.15s ease both;
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.dropItem {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  transition: all var(--transition);
+}
+.dropItem:hover { background: var(--bg-3); color: var(--text); }
+.danger:hover { color: var(--red); }
