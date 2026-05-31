@@ -15,9 +15,11 @@ app = FastAPI(
 )
 
 # ─── CORS ────────────────────────────────────────────────
+# Origins are read from ALLOWED_ORIGINS env var so you never
+# have to touch this file when deploying to a new domain.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=settings.get_allowed_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
